@@ -3,7 +3,7 @@
 void ControladorPIC::iniciar() {
     // UART0 queda reservado para los mensajes de depuración por USB.
     Serial.begin(115200);
-    Serial2.begin(9600, SERIAL_8N1, rxPin, txPin);
+    Serial1.begin(9600, SERIAL_8N1, rxPin, txPin);
     delay(500);
 }
 
@@ -11,13 +11,13 @@ bool ControladorPIC::enviarComando(uint8_t motor_id, uint8_t cmd, uint8_t param)
     uint8_t checksum = motor_id ^ cmd ^ param;
     uint8_t trama[6] = {HEADER, motor_id, cmd, param, checksum, TAIL};
 
-    while (Serial2.available()) {
-        Serial2.read();
+    while (Serial1.available()) {
+        Serial1.read();
     }
 
     for (int intento = 1; intento <= 3; intento++) {
-        Serial2.write(trama, sizeof(trama));
-        Serial2.flush();
+        Serial1.write(trama, sizeof(trama));
+        Serial1.flush();
         Serial.print(" Intento ");
         Serial.print(intento);
         Serial.println("...");
@@ -27,8 +27,8 @@ bool ControladorPIC::enviarComando(uint8_t motor_id, uint8_t cmd, uint8_t param)
         size_t recibidos = 0;
 
         while (millis() - inicioTiempo < 10000) {
-            while (Serial2.available() && recibidos < sizeof(respuesta)) {
-                respuesta[recibidos++] = static_cast<uint8_t>(Serial2.read());
+            while (Serial1.available() && recibidos < sizeof(respuesta)) {
+                respuesta[recibidos++] = static_cast<uint8_t>(Serial1.read());
             }
 
             if (recibidos == sizeof(respuesta)) {
@@ -51,8 +51,10 @@ bool ControladorPIC::enviarComando(uint8_t motor_id, uint8_t cmd, uint8_t param)
 
                     if (ultimo_estado == 0xEE) {
                         Serial.println("¡ALERTA! Atasco mecánico detectado (0xEE).");
+                        return false;
                     } else if (ultimo_estado == 0x00) {
                         Serial.println("Movimiento completado (READY).");
+                        return true;
                     }
                     return true;
                 }
