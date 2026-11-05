@@ -200,7 +200,7 @@ void ir_a_posicion_m1(int posicion_destino) {
                 ranuras_contadas++;
 
                 if (ranuras_contadas == (ranuras_objetivo - 1)) {
-                    pulsos_on = 5; pulsos_off = 36;
+                    pulsos_on = 8; pulsos_off = 36;
                 }
 
                 if (ranuras_contadas >= ranuras_objetivo) {
