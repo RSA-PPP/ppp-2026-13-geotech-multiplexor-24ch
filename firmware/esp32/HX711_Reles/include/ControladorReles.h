@@ -27,8 +27,8 @@
 #define DEAD_TIME_MS        20
 
 enum ModoMedicion {
-    MODO_DEFORMACION  = 0,   // GPIO17=0, GPIO16=0 → deformación µε
-    MODO_TEMPERATURA  = 1    // GPIO17=1, GPIO16=1 → temperatura °C
+    MODO_DEFORMACION  = 0,   // GPIO17=0, GPIO16=0 → Deformación µε (contactos puente activos)
+    MODO_TEMPERATURA  = 1    // GPIO17=1, GPIO16=1 → Temperatura °C
 };
 
 enum TipoSensor {

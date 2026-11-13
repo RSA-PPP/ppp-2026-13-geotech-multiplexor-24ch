@@ -41,9 +41,11 @@ void ControladorReles::_setTipoSensor(TipoSensor tipo) {
 
 void ControladorReles::_setModo(ModoMedicion modo) {
     if (modo == MODO_DEFORMACION) {
+        // En hardware físico: RELE 3 = 0, RELE 4 = 0 (contactos NC activos para el puente)
         digitalWrite(RELE_MODO_BIT1, LOW);
         digitalWrite(RELE_MODO_BIT0, LOW);
     } else {
+        // RELE 3 = 1, RELE 4 = 1
         digitalWrite(RELE_MODO_BIT1, HIGH);
         digitalWrite(RELE_MODO_BIT0, HIGH);
     }
