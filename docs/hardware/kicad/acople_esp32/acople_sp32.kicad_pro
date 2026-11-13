@@ -86,7 +86,7 @@
         "connection_width": "warning",
         "copper_edge_clearance": "error",
         "copper_sliver": "warning",
-        "courtyards_overlap": "ignore",
+        "courtyards_overlap": "error",
         "creepage": "error",
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
@@ -118,7 +118,7 @@
         "nonmirrored_text_on_back_layer": "warning",
         "npth_inside_courtyard": "error",
         "padstack": "warning",
-        "pth_inside_courtyard": "ignore",
+        "pth_inside_courtyard": "error",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
@@ -158,7 +158,7 @@
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.2,
+        "min_through_hole_diameter": 0.3,
         "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
@@ -253,7 +253,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": "V2.0"
+      "sch_revision": ""
     },
     "layer_pairs": [],
     "layer_presets": [],
@@ -508,7 +508,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.25,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -519,87 +519,26 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.25,
+        "track_width": 1.0,
         "tuning_profile": "",
         "via_diameter": 0.6,
-        "via_drill": 0.3,
-        "wire_width": 6
-      },
-      {
-        "bus_width": 12,
-        "clearance": 0.25,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.25,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "Analog_Cell",
-        "pcb_color": "rgba(0, 200, 100, 0.800)",
-        "priority": 120,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.35,
-        "tuning_profile": "",
-        "via_diameter": 0.6,
-        "via_drill": 0.3,
-        "wire_width": 6
-      },
-      {
-        "bus_width": 12,
-        "clearance": 0.25,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "Power_12V_5V",
-        "pcb_color": "rgba(255, 0, 0, 0.800)",
-        "priority": 100,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.75,
-        "tuning_profile": "",
-        "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6
       },
       {
-        "bus_width": 12,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "Power_3V3",
-        "pcb_color": "rgba(0, 128, 255, 0.800)",
-        "priority": 110,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.5,
-        "tuning_profile": "",
-        "via_diameter": 0.7,
-        "via_drill": 0.35,
-        "wire_width": 6
-      },
-      {
-        "bus_width": 12,
         "clearance": 0.25,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
-        "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "Relay_Outputs",
-        "pcb_color": "rgba(128, 0, 128, 0.800)",
-        "priority": 130,
+        "name": "power",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.4,
+        "track_width": 2.0,
         "tuning_profile": "",
-        "via_diameter": 0.7,
-        "via_drill": 0.35,
-        "wire_width": 6
+        "via_diameter": 1.2,
+        "via_drill": 0.6
       }
     ],
     "meta": {
@@ -609,48 +548,16 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "Power_12V_5V",
-        "pattern": "+12V"
-      },
-      {
-        "netclass": "Power_12V_5V",
+        "netclass": "power",
         "pattern": "+5V"
       },
       {
-        "netclass": "Power_12V_5V",
-        "pattern": "+5V_ADC"
+        "netclass": "power",
+        "pattern": "VDD"
       },
       {
-        "netclass": "Power_3V3",
-        "pattern": "+3.3V"
-      },
-      {
-        "netclass": "Power_3V3",
-        "pattern": "+3V3*"
-      },
-      {
-        "netclass": "Power_3V3",
-        "pattern": "AVDD"
-      },
-      {
-        "netclass": "Analog_Cell",
-        "pattern": "IN+*"
-      },
-      {
-        "netclass": "Analog_Cell",
-        "pattern": "IN-*"
-      },
-      {
-        "netclass": "Analog_Cell",
-        "pattern": "INA+*"
-      },
-      {
-        "netclass": "Analog_Cell",
-        "pattern": "INA-*"
-      },
-      {
-        "netclass": "Relay_Outputs",
-        "pattern": "rele*"
+        "netclass": "power",
+        "pattern": "+12V"
       }
     ]
   },
@@ -782,7 +689,7 @@
         "uuid": "01296aac-3952-46a7-a631-15820925c2f2"
       }
     ],
-    "used_designators": "",
+    "used_designators": "J2",
     "variants": []
   },
   "sheets": [

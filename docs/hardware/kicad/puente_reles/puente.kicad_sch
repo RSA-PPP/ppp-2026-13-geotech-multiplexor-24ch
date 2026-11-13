@@ -6977,6 +6977,26 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "SDI\nACOPLE"
+		(exclude_from_sim no)
+		(at 89.662 139.446 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2012fbb0-6a46-4f0d-975a-13e543e0f415")
+	)
+	(text "Conector J2 en acople"
+		(exclude_from_sim no)
+		(at 272.796 234.696 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2aa6ae56-53bf-4d2e-aaed-d6868b613a13")
+	)
 	(text "RELE 3:\nCONEXION A\n0  Desconecatado\n1  Conectado\n"
 		(exclude_from_sim no)
 		(at 264.922 116.84 0)
@@ -6987,6 +7007,16 @@
 			(justify left)
 		)
 		(uuid "2e4330ac-9618-455a-8f93-aa716b3f4769")
+	)
+	(text "SCK_\n"
+		(exclude_from_sim no)
+		(at 245.618 228.092 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2f466935-a9ac-41ba-9d5d-f60a724c4406")
 	)
 	(text "RELE 1:\nAISLAMIENTO DE BATERA:\n0 Conectada\n1 Desconectada(medición)"
 		(exclude_from_sim no)
@@ -7009,6 +7039,16 @@
 			(justify left)
 		)
 		(uuid "6651758f-e41f-4515-b96c-b83d5609b5ae")
+	)
+	(text "SCK_\n"
+		(exclude_from_sim no)
+		(at 86.36 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "70b328e3-616a-42ae-8005-88cac2d83f86")
 	)
 	(text "RELE 2:\nENERGIZACION\n0    Apagado\n1    Energiza el puente"
 		(exclude_from_sim no)
